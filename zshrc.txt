@@ -1,0 +1,59 @@
+
+
+
+set -o vi
+alias cpwd="pwd|pbcopy"
+alias vib="vi ~/.bash_profile"
+alias viz="vi ~/.zshrc"
+alias t="touch"
+alias va="vim a.c"
+alias vv="vi ~/.vimrc"
+alias r="./a.out"
+alias gc="gcc a.c"
+alias sshst="ssh student@134.117.129.95"
+alias os="cd /Users/zhigangmo/downloads/os"
+alias dl="cd /Users/zhigangmo/downloads"
+#alias sep="cd /Users/zhigangmo/downloads/os/sep"
+alias sa="echo include <stdio.h>\0"
+alias c="cd .."
+alias cdb="cd -"
+alias via="vi ~/a.c"
+alias cpa="cp ~/a.c ."
+alias cj="cp ~/a.java ."
+alias ll="ls -la"
+alias la="ls -A"
+alias l="ls -CF"
+alias ss="pk102610"
+alias j="jobs -l"
+alias f="fg"
+alias 0="<c-m>"
+alias di="/Users/zhigangmo/downloads/os/t1/a.out"
+#alias em="fp=$(fzf), vi $fp"
+alias v="vifm ."
+#echo 'I will print'
+#alias [="echo -en '\e[8;11;180t'"
+alias ts='echo -en "\e[8;11;180t"'
+alias tl='echo -en "\e[8;34;180t"'
+alias rmc='rm *.class'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source ~/.config/vifm/vifm-zsh-completion.sh
+
+function vn {
+  vifm . --choose-dir - > /tmp/vifm_chosen_dir && chosen_dir=$(cat /tmp/vifm_chosen_dir) && rm /tmp/vifm_chosen_dir && cd "$chosen_dir"
+}
+
+alias ls="ls -G"
+
+LS_COLORS='di=34:fi=0:ln=35:pi=30;44:so=32:bd=33;44:cd=33;44:or=31;01;44:mi=0:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=01;31:*.tbz=01;31:*.tgz=01;31:*.rpm=01;31:*.deb=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tz=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.png=01;35:*.mng=01;35:*.xwd=01;35:*.flac=01;35:*.mp3=01;35:*.mpc=01;35:*.ogg=01;35:*.wav=01;35:'
+export LS_COLORS
+alias va='printf "\x01"'
+export PATH="/usr/local/Cellar/postgresql@14/14.8/bin:$PATH"
+export PATH="/usr/local/Cellar/postgresql@14/14.8/bin:$PATH"
+export PATH="/usr/local/Cellar/postgresql@14/14.8/bin:$PATH"
+export PATH="/usr/local/Cellar/postgresql@14/14.8/bin:$PATH"
+export PATH="/usr/local/Cellar/postgresql@14/14.8/bin:$PATH"
+export DOTNET_ROOT=/usr/local/Cellar/dotnet/7.0.100/libexec/
+export PATH="/usr/local/sbin:$PATH"

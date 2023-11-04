@@ -1,0 +1,214 @@
+
+
+
+let g:netrw_banner = 1 "banner 
+let g:netrw_liststyle = 3 "long style
+let g:netrw_browse_split = 4 
+let g:netrw_altv = 1
+let g:netrw_winsize = 15
+let g:loaded_netrwPlugin = 1
+":Vexplore
+
+augroup ProjectDrawer
+  autocmd!
+  "autocmd VimEnter * :Explore
+augroup END
+
+syntax on
+set number
+set mouse=a
+autocmd! bufwritepost .vimrc source %
+inoremap <C-j> <C-x>
+vnoremap <C-C> "+y
+"inoremap <c-m> M
+inoremap .n N
+inoremap .s S
+inoremap .nu NULL
+inoremap <)n> N
+inoremap <s-n> [
+inoremap <s-m> ]
+inoremap <s-h> {
+inoremap <s-k> }
+"inoremap <c-/> \
+inoremap <s-b> %
+inoremap <s-s> \
+inoremap .a <s-a>
+inoremap <s-a> &
+inoremap <s-y> _
+inoremap <s-j> =
+inoremap <s-u> (
+""inoremap <c-i> )
+inoremap <s-i> )
+inoremap <s-d> +
+inoremap <s-x> -
+nnoremap <s-j> 3j
+nnoremap <s-k> 3k
+nnoremap <s-w> 3w
+nnoremap <s-b> 3b
+nnoremap <c-j> 6j
+nnoremap <c-k> 6k
+nnoremap <c-u> <c-t>
+"nnoremap <c-i> <c-]>
+set showmatch
+"nnoremap rr zt
+"nnoremap time /oct 13
+"inoremap <2-LeftMouse> <c-h> 
+inoremap { {}<Esc>i
+inoremap pbl public static void main( String [] args ) {    
+inoremap sop System.out.println(
+"imap uns using namespace std;
+map <f5> i"<esc>ea"<esc>
+inoremap <A-a> <s-a> 
+inoremap .. .
+inoremap .b <s-b>
+inoremap .c <s-c>
+inoremap .d <s-d>
+inoremap .e <s-e>
+inoremap .g <s-g>
+inoremap .h <s-h>
+inoremap .i <s-i>
+inoremap .j <s-j>
+inoremap .k <s-k>
+inoremap .l <s-l>
+inoremap .m <s-m>
+inoremap .n <s-n>
+inoremap .o <s-l>
+inoremap .p <s-p>
+inoremap .r <s-r>
+inoremap .s <s-s>
+inoremap .t <s-t>
+
+nnoremap 4 $
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+
+nmap <f2> :w<cr>:!make<cr>
+nmap <f3> :make run<cr>
+nmap <f1> :!python3 a.py<cr>
+
+cmap <esc> <CR>
+hi cursor guifg = blue guibg=#002943
+set cursorline
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set guicursor+=n-v-c:blinkon0
+
+set ruler
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set clipboard^=unnamed,unnamedplus
+"vmap y :w !pbcopy<CR><CR>	"very
+nmap yy :.w !pbcopy<CR><CR>
+
+set autoindent
+filetype indent plugin on
+set hlsearch
+set incsearch
+set showcmd
+set wildmenu
+set ignorecase
+set smartindent
+set expandtab 
+set cursorline
+set showmatch
+set ai
+highlight Cursor guifg=white guibg=black
+highlight iCursor guifg=white guibg=steelblue
+if has("spell")
+  " turn spelling on by default
+  set spell
+  " toggle spelling with F4 key
+  map <F4> :set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+  " they were using white on white
+  highlight PmenuSel ctermfg=black ctermbg=lightgray
+
+  " limit it to just the top 10 items
+  set sps=best,10
+endif
+inoremap <c-w> <c-w>W
+"map q I//<esc>
+map <cr> o<Esc>kO<Esc>j 
+"noremap ; O<CR><cr><cr><CR><cr><cr><cr><Esc>jo<cr><cr><CR><cr><cr><cr><Esc>kkkkkkk
+nnoremap u uzz
+"map , ^xx
+"map , ^x
+au CursorHold,CursorHoldI * checktime
+set autoread
+nnoremap <c-h> :w<cr> 
+nnoremap <space> *N 
+"nnoremap y yy 
+
+map <c-p> I<!--<esc>4a--><esc> 
+map , ^xxxx<esc>4xxx 
+nnoremap <F8> <s-z><s-z><s-z><s-z>
+"nnoremap 9 <c-h><c-z>
+nnoremap 9 :w<cr><c-z>
+
+
+
+inoremap <c-o> 1
+"inoremap ; :
+"inoremap : ;
+
+inoremap { {}<Left>
+autocmd BufNewFile *.txt :write
+
+"autocmd FileType python nnoremap  <buffer> cm I#<esc>
+augroup Relative
+    autocmd!
+    autocmd FileType python nnoremap <buffer> c c
+    autocmd InsertLeave * set nornu
+    autocmd InsertEnter * set rnu
+    "autocmd InsertLeave * highlight Cursorline cetrmbg = 7 
+    autocmd Filetype *.txt inoremap <buffer> ; :
+    "autocmd Filetype python inoremap <buffer> ; :
+    autocmd FileType java nnoremap  <buffer> cm I//<esc>
+    autocmd FileType javascript nnoremap  <buffer> cm I//<esc>
+    autocmd FileType c nnoremap  <buffer> cm I//<esc>
+    autocmd BufWritePost .vimrc source % 
+    autocmd FileType java inoremap  <buffer> ' "
+    autocmd FileType java inoremap  <buffer> " '
+    "autocmd InsertEnter * highlight Cursorline ctermbg = 7 
+augroup END 
+noremap 1 :source ~/.vimrc<cr>
+nnoremap <c-q> ~  
+"nnoremap q I#<esc>
+nnoremap gl zt
+nnoremap <c-n> :bp<cr>
+nnoremap <c-m> :bn<cr>
+nnoremap <c-l> :ls<cr>
+nnoremap <c-d> :bd
+set hidden
+inoremap <c-k> <esc>zto
+
+
+"vnoremap u ~ 
+nnoremap <c-u> ~
+nnoremap <c-;> :
+nnoremap ` ~
+nnoremap 0 ^
+nnoremap <c-a> ^ 
+nnoremap - :reg<cr>
+"inoremap = <c-r>=system('python3 c.py')<cr>
+
+vnoremap v iB
+"nnoremap w w<space>
+nnoremap 8 :w<cr>:!./s.sh<cr>
+"nnoremap <tab> <c-w><c-w>
+nnoremap <tab> <s-z><s-z><s-z><s-z>
+
+"nnoremap <buffer> l <cr>
+"au filetype netrw nmap <buffer> l <CR>
+" vim: filetype=vim
+set tags=./tags
+
+set backspace=indent,eol,start
+nnoremap va :%y+<cr>
+nnoremap vd ggvG
+
